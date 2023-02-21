@@ -1,48 +1,20 @@
-//Clase a agregar al seleccionar letra
-let color = '';
+//function pintar(){
+//    ele = document.getElementById("ele1")
+//    ele.style.backgroundColor = 'yellow'
+//    }
+//    ele = document.getElementById("ele1")
+//    ele.addEventListener("click", pintar);
 
-//Elemento Vista previa color
-let spanPreview = document.querySelector('.color');
 
+//3.1
+//const pintar = (e) => e.style.backgroundColor = 'yellow';
 
-// Funcion Cambia color fondo a elemento
-const changeBgColor = (elem, color) => {
-    elem.style.backgroundColor = color;
-}
+//let elem = document.getElementById('ele1');
+//elem.addEventListener('click', () => pintar(elem))
 
-//agrega evento para escuchar keydown
-document.addEventListener("keydown", (e) => {
-    switch(e.key.toLowerCase()){
-        case "a" :
-            color = 'yellow';
-            break;
-        
-        case "r" :
-            color = 'red';
-            break;
-        
-        case "v" :
-            color = 'green';
-            break;
-        
-        case "n" : 
-            color = 'orange';
-            break;
-        default:
-            color = '';
-            console.log('Debe seleccionar algunas de las opciones disponibles');
-    }
-    if(color != ''){
-        changeBgColor(spanPreview, color);
-    }
-})
+//3.2
+const pintar = (e, c = 'green') => e.style.backgroundColor = c;
 
-//Captura todos los elementos con clase .square
-const squareDivs = document.querySelectorAll('.square');
+let elem = document.getElementById('ele1');
+elem.addEventListener('click', () => pintar(elem, 'yellow'))
 
-//por cada div.square, agrega el event listener de click, cambia el bg color
-squareDivs.forEach((el) => el.addEventListener('click', (e) => {
-    if(color != ''){
-        changeBgColor(el, color)
-    }
-}));
